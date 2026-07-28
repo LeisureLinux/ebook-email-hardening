@@ -1,7 +1,7 @@
 # 邮件系统纵深加固：从协议栈到红蓝对抗与 ISO 27001 落地
 
 > 🛡️ 邮件安全架构师的完整作战地图：底层 RFC 协议族（SMTP/IMAP/JMAP/DKIM/DMARC）→ 中游 SEG/Rspamd/DLP 纵深防御 → 顶层红蓝对抗（GoPhish/Evilginx2）与 ISO 27001:2022 合规收束。
-> 作者：**LeisureLinux** (郭靖大侠) · **8 部分 · 27 章 · 3 附录**
+> 作者：**LeisureLinux** (郭靖大侠) · **8 部分 · 28 章 · 3 附录**
 
 [![build](https://github.com/LeisureLinux/ebook-email-hardening/actions/workflows/build.yml/badge.svg)](https://github.com/LeisureLinux/ebook-email-hardening/actions/workflows/build.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
@@ -9,7 +9,7 @@
 
 ## 📖 关于本书
 
-本书是国内少有的**从系统架构师、安全分析师与红蓝对抗实战视角**全面解构现代企业邮件系统的技术专著。全书 **8 个部分、27 章、3 个附录**，覆盖从 RFC 协议规范到生产环境部署的完整知识体系：
+本书是国内少有的**从系统架构师、安全分析师与红蓝对抗实战视角**全面解构现代企业邮件系统的技术专著。全书 **8 个部分、28 章、3 个附录**，覆盖从 RFC 协议规范到生产环境部署的完整知识体系：
 
 | 部分 | 主题 | 章数 | 核心亮点 |
 |------|------|:---:|---------|
@@ -20,7 +20,7 @@
 | 五 | 邮件安全网关 (SEG) 与高级威胁 | 3 | Rspamd · PMG · Symantec SMG · Cisco IronPort · Proofpoint · SIEM/SOAR |
 | 六 | 云端 PaaS 与 EDM 营销自动化 | 1 | AWS SES · 阿里云 DirectMail · Mailchimp · IP Warming |
 | 七 | 信创生态·高可用·协议演进 | 5 | 信创适配 · 国密 SM2/SM3/SM4 · HA/DR · 🆕 **JMAP 协议演进** |
-| 八 | 🆕 **攻防对抗·纵深防御·合规落地** | 2 | STRIDE 威胁建模 · GoPhish · Evilginx2 · ISO 27001:2022 · CMM |
+| 八 | 🆕 **攻防对抗·纵深防御·合规落地** | 3 | STRIDE 威胁建模 · GoPhish · Evilginx2 · ISO 27001 · 🆕 自建私有 RBL · CMM |
 
 ---
 
@@ -408,6 +408,28 @@
   - 27.4.1 五级成熟度评估（L1-L5）
   - 27.4.2 基于本书的成熟度跃迁路径
 
+#### 🆕 第二十八章 自建私有 RBL/URIBL 与威胁情报联防体系
+
+- **28.1** 为什么企业需要自建 RBL 后端
+  - 28.1.1 公网 RBL 的三大天花板（QPS 限制 / 商业许可 / 无法注入私有情报）
+  - 28.1.2 自建 RBL 的架构价值（突破公网限制 / 联防联控 / URIBL 域名级阻断）
+- **28.2** DNSBL 协议规范与工作原理 (RFC 5782)
+  - 28.2.1 逆向 DNS 查询机制与 Return Code (127.0.0.x) 语义
+  - 28.2.2 TXT 记录的拦截原因说明
+- **28.3** 自建 RBL 服务端选型：rbldnsd
+  - 28.3.1 rbldnsd vs BIND/Unbound/CoreDNS 架构对比
+  - 28.3.2 Zone 文件格式与 Postfix/Rspamd 接入配置
+- **28.4** 公网商业 Feed 本地镜像化
+  - 28.4.1 Spamhaus DQS Rsync 同步方案
+  - 28.4.2 其他可镜像 Feed（Invaluement / Abuse.ch / FireHOL / Emerging Threats）
+- **28.5** 自动化威胁情报注入：从蜜罐到全网秒级封禁
+  - 28.5.1 SOC → SOAR → rbldnsd 自动化流水线
+  - 28.5.2 基于 Redis + CoreDNS 的毫秒级实时注入方案
+  - 28.5.3 公网 RBL vs 公网+自建 RBL 防御效果对比
+- **28.6** 对比：历史方案与现代演进
+  - 28.6.1 djbdns rbldns（DJB 经典方案）
+  - 28.6.2 方案对比矩阵（rbldnsd / djbdns / CoreDNS+Redis / PowerDNS+MySQL）
+
 ---
 
 ## 附录结构
@@ -472,7 +494,7 @@ pandoc --pdf-engine=xelatex --metadata-file=metadata.yml \
        src/12-*.md src/13-*.md src/14-*.md src/15-*.md \
        src/16-*.md src/17-*.md src/18-*.md src/19-*.md \
        src/20-*.md src/21-*.md src/22-*.md src/23-*.md \
-       src/24-*.md src/25-*.md src/26-*.md src/27-*.md src/99-*.md \
+       src/24-*.md src/25-*.md src/26-*.md src/27-*.md src/28-*.md src/99-*.md \
        -o ../dist/email-hardening.pdf
 
 # 构建 ePub（需要 cover.png）
@@ -483,7 +505,7 @@ pandoc --to=epub3 --metadata-file=metadata.yml \
        --from=markdown+smart+footnotes+raw_attribute \
        --resource-path=src \
        --epub-cover-image=cover.png \
-       src/00-preface.md src/01-*.md ... src/27-*.md src/99-*.md \
+       src/00-preface.md src/01-*.md ... src/27-*.md src/28-*.md src/99-*.md \
        -o ../dist/email-hardening.epub
 
 # 构建 HTML
@@ -492,7 +514,7 @@ pandoc --to=html5 --standalone --metadata-file=metadata.yml \
        --from=markdown+smart+footnotes+raw_attribute \
        --resource-path=src \
        --css=theme/html.css --self-contained \
-       src/00-preface.md src/01-*.md ... src/27-*.md src/99-*.md \
+       src/00-preface.md src/01-*.md ... src/27-*.md src/28-*.md src/99-*.md \
        -o ../dist/email-hardening.html
 ```
 
