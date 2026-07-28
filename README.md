@@ -42,6 +42,8 @@
 
 本书旨在从**系统架构师、安全分析师与高级 IT 咨询顾问**的视角，剥离不必要的概念包装与比喻，以底层 RFC 规范、报文交互逻辑、组件源码级工作原理以及生产环境部署实战为线索，全面解构现代企业级邮件与协同系统的硬化与架构防护体系。
 
+特别地，本书在传统 IMAP/POP3 协议深度解析之外，首次将 **JMAP（JSON Meta Application Protocol，RFC 8620/8621）** 引入邮件安全加固的讨论范畴——从移动优先、高并发、弱网环境的架构需求出发，提供企业级平滑演进方案与原生 JMAP 服务端架构评析，将本书与市面上停留在十年前 IMAP 教程的"运维手册"彻底拉开档次。
+
 全书分为七个核心部分与三个附录，逻辑严密，涵盖从协议基础、终端/Webmail 加固、存储/过滤层防护、传输/网关/反病毒集成、云端 PaaS/EDM 隔离，到信创国密、高可用灾备实战的完整知识体系。
 
 ---
@@ -276,7 +278,7 @@
 
 ---
 
-### 第七部分：信创生态、高可用架构与合规落地
+### 第七部分：信创生态、高可用架构与下一代协议演进
 
 #### 第二十一章 信创邮件系统架构解析
 
@@ -322,6 +324,71 @@
   - 24.5.1 Corosync / Pacemaker 高可用集群仲裁机制（Quorum）与 STONITH/Fencing 节点强行隔离策略
   - 24.5.2 脑裂发生后的数据一致性修复、双写冲突解拆与日志审计追溯
   - 24.5.3 企业级灾备演练（DR Drill）SOP 制定：模拟光纤中断、主库宕机与数据秒级拉起验证
+
+#### 🆕 第二十五章 下一代邮件接入协议（JMAP）与架构演进
+
+- **25.1** 为什么 JMAP 是现代邮件架构绕不开的话题
+  - 25.1.1 架构级对比：IMAP vs JMAP（传输层/序列化/同步/交互/协同整合）
+- **25.2** 传统 IMAP 的原生架构缺陷再审视
+  - 25.2.1 TCP 连接池爆炸与服务端压力
+  - 25.2.2 移动端电量与流量杀手
+  - 25.2.3 微服务/容器环境下的长连接不兼容性
+- **25.3** JMAP 核心技术机制深度解析
+  - 25.3.1 HTTP/2 多路复用与 JSON 序列化
+  - 25.3.2 `state` 令牌与增量同步（Delta Sync）
+  - 25.3.3 请求批处理（Batching）
+  - 25.3.4 Web Push（RFC 8030）与 SSE 异步推送
+- **25.4** 企业级 JMAP 平滑演进方案
+  - 25.4.1 Cyrus IMAP — 最成熟的原生 JMAP 服务端
+  - 25.4.2 Dovecot + JMAP Proxy 混合架构
+  - 25.4.3 下一代纯 JMAP 架构：Stalwart Mail Server（Rust 编写）
+  - 25.4.4 传统架构 vs 现代原生 JMAP 服务端架构评析
+- **25.5** 信创场景下的 JMAP 落地可行性
+  - 25.5.1 HTTP/2 与国密 TLCP 的兼容性
+  - 25.5.2 国产化 JMAP 技术栈评估
+- **25.6** 从 IMAP 到 JMAP：企业迁移路线图
+- **25.7** 协同协议演进：LDAP 与 CardDAV 在现代架构中的角色重塑
+  - 25.7.1 LDAP 在邮件系统中的传统角色与现代替代（SCIM 2.0 / JMAP Contacts）
+  - 25.7.2 CardDAV 的局限与 JMAP 的统一协同模型
+  - 25.7.3 企业协同协议栈的现代化路线
+
+---
+
+### 第八部分：攻防对抗、纵深防御与合规落地
+
+#### 第二十六章 邮件威胁建模与红队钓鱼仿真
+
+- **26.1** 邮件威胁建模方法论
+  - 26.1.1 STRIDE 模型在邮件系统中的映射（Spoofing / Tampering / Repudiation / Info Disclosure / DoS / Elevation）
+  - 26.1.2 MITRE ATT&CK 邮件相关技术映射（T1566 / T1078 / T1534 / T1098 / T1114 / T1048）
+  - 26.1.3 攻击链（Kill Chain）建模
+- **26.2** 红队钓鱼仿真平台：GoPhish
+  - 26.2.1 GoPhish 架构与部署
+  - 26.2.2 钓鱼邮件模板设计技巧（Sibling Domain / HTML 躲避 / 动态重定向 / 日历邀约钓鱼）
+  - 26.2.3 钓鱼演练的合规边界与道德准则
+- **26.3** MFA 多因子认证绕过实战：Evilginx2
+  - 26.3.1 Evilginx2 的反向代理中间人（AiTM）原理
+  - 26.3.2 Phishlet 机制与邮件系统场景适配（M365 OWA / Gmail / Zimbra / Roundcube）
+  - 26.3.3 Evilginx2 的防御检测与对抗（CT 日志监控 / JA3/JA4 指纹 / 域名新注册检测）
+- **26.4** 实战：红队全链路钓鱼攻击模拟
+  - 26.4.1 场景：针对某企业邮件系统的全链路测试
+  - 26.4.2 红队交付物与蓝队防御检查清单
+
+#### 第二十七章 社会工程学防御、人的防火墙构建与 ISO 27001:2022 落地映射
+
+- **27.1** 邮件安全最薄弱的一环：人
+  - 27.1.1 社会工程学在邮件攻击中的七种典型场景（紧迫性/权威冒充/互惠/从众/稀缺/信任建立/承诺一致性）
+  - 27.1.2 BEC（商业邮件诈骗）的社会工程学内核
+- **27.2** 构建"人的防火墙"：组织级社会工程防御工程
+  - 27.2.1 安全意识培训的工业化交付（月度微课 + 季度演练）
+  - 27.2.2 钓鱼演练的分级体系（L1-L4）
+  - 27.2.3 钓鱼点击后的"温暖纠正"机制
+- **27.3** ISO 27001:2022 邮件安全控制项落地映射
+  - 27.3.1 附录 A 控制项完整映射表（17 项控制 × 对应章节 × 落地措施）
+  - 27.3.2 ISO 27001:2022 邮件安全管控全景视图
+- **27.4** 邮件安全团队的能力成熟度模型（CMM）
+  - 27.4.1 五级成熟度评估（L1-L5）
+  - 27.4.2 基于本书的成熟度跃迁路径
 
 ---
 
@@ -387,7 +454,7 @@ pandoc --pdf-engine=xelatex --metadata-file=metadata.yml \
        src/12-*.md src/13-*.md src/14-*.md src/15-*.md \
        src/16-*.md src/17-*.md src/18-*.md src/19-*.md \
        src/20-*.md src/21-*.md src/22-*.md src/23-*.md \
-       src/24-*.md src/99-*.md \
+       src/24-*.md src/25-*.md src/26-*.md src/27-*.md src/99-*.md \
        -o ../dist/email-hardening.pdf
 
 # 构建 ePub（需要 cover.png）
@@ -398,7 +465,7 @@ pandoc --to=epub3 --metadata-file=metadata.yml \
        --from=markdown+smart+footnotes+raw_attribute \
        --resource-path=src \
        --epub-cover-image=cover.png \
-       src/00-preface.md src/01-*.md ... src/24-*.md src/99-*.md \
+       src/00-preface.md src/01-*.md ... src/27-*.md src/99-*.md \
        -o ../dist/email-hardening.epub
 
 # 构建 HTML
@@ -407,7 +474,7 @@ pandoc --to=html5 --standalone --metadata-file=metadata.yml \
        --from=markdown+smart+footnotes+raw_attribute \
        --resource-path=src \
        --css=theme/html.css --self-contained \
-       src/00-preface.md src/01-*.md ... src/24-*.md src/99-*.md \
+       src/00-preface.md src/01-*.md ... src/27-*.md src/99-*.md \
        -o ../dist/email-hardening.html
 ```
 

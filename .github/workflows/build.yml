@@ -90,6 +90,9 @@ jobs:
             src/22-*.md \
             src/23-*.md \
             src/24-*.md \
+            src/25-*.md \
+            src/26-*.md \
+            src/27-*.md \
             src/99-*.md \
             -o ../dist/email-hardening.pdf
 
@@ -140,6 +143,9 @@ jobs:
             src/22-*.md \
             src/23-*.md \
             src/24-*.md \
+            src/25-*.md \
+            src/26-*.md \
+            src/27-*.md \
             src/99-*.md \
             -o ../dist/email-hardening.epub
 
@@ -184,6 +190,9 @@ jobs:
             src/22-*.md \
             src/23-*.md \
             src/24-*.md \
+            src/25-*.md \
+            src/26-*.md \
+            src/27-*.md \
             src/99-*.md \
             -o ../dist/email-hardening.html
 
