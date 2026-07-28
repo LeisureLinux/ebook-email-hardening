@@ -1,0 +1,51 @@
+---
+title: "邮件系统安全加固：从 SMTP 协议到国密与高可用架构"
+subtitle: "Modern Enterprise Email & Collaboration Infrastructure Hardening — From SMTP Protocol to National Cryptography, Cloud PaaS and HA Architecture"
+author: "LeisureLinux"
+date: "2026年7月"
+lang: "zh-CN"
+publisher: "LeisureLinux"
+subject:
+  - "Email"
+  - "Security"
+  - "SMTP"
+  - "DKIM"
+  - "DMARC"
+  - "MTA"
+  - "Enterprise Collaboration"
+keywords:
+  - "email-hardening"
+  - "postfix"
+  - "dovecot"
+  - "dns-security"
+  - "antispam"
+  - "dkim"
+  - "dmarc"
+  - "mta-sts"
+  - "dane"
+  - "rspamd"
+  - "sieve"
+  - "caldav"
+  - "carddav"
+  - "pki"
+  - "smime"
+  - "dlp"
+  - "high-availability"
+  - "disaster-recovery"
+  - "national-cryptography"
+  - "sm2-sm3-sm4"
+  - "aws-ses"
+  - "aliyun-directmail"
+  - "edm"
+  - "deliverability"
+  - "zimbra"
+  - "domino"
+  - "lotus-notes"
+description: |
+  本书从系统架构师、安全分析师与高级 IT 咨询顾问的视角，
+  以底层 RFC 规范、报文交互逻辑、组件源码级工作原理以及生产环境部署实战为线索，
+  全面解构现代企业级邮件与协同系统的硬化与架构防护体系。
+rights: "© 2026 LeisureLinux. Released under MIT License."
+ibooks:
+  version: 1.0.0
+...
