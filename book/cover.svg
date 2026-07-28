@@ -2,25 +2,127 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a3a5c"/>
-      <stop offset="100%" style="stop-color:#0d1f33"/>
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="50%" style="stop-color:#112240"/>
+      <stop offset="100%" style="stop-color:#0a1628"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a9eff"/>
+      <stop offset="50%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#e74c3c"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="1600" fill="url(#bg)"/>
-  <!-- Email icon (simplified envelope) -->
-  <rect x="400" y="350" width="400" height="280" rx="20" ry="20" fill="none" stroke="#4a9eff" stroke-width="6"/>
-  <polyline points="400,380 600,520 800,380" fill="none" stroke="#4a9eff" stroke-width="6" stroke-linejoin="round"/>
-  <!-- Shield overlay -->
-  <path d="M600,480 L500,530 L500,650 Q500,750 600,800 Q700,750 700,650 L700,530 Z" fill="none" stroke="#00d4aa" stroke-width="5" opacity="0.8"/>
-  <text x="600" y="780" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#00d4aa" opacity="0.8">🔒</text>
-  <!-- Title -->
-  <text x="600" y="950" text-anchor="middle" font-family="Noto Serif CJK SC, serif" font-size="48" font-weight="bold" fill="#ffffff">邮件系统安全加固</text>
-  <text x="600" y="1020" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#7eb8ff">从 SMTP 协议到国密与高可用架构</text>
-  <line x1="350" y1="1060" x2="850" y2="1060" stroke="#4a9eff" stroke-width="2" opacity="0.5"/>
-  <text x="600" y="1150" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#aac8ff">Modern Enterprise Email &amp; Collaboration</text>
-  <text x="600" y="1185" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#aac8ff">Infrastructure Hardening</text>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <!-- Background grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#fff"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#fff"/>
+    <line x1="0" y1="600" x2="1200" y2="600" stroke="#fff"/>
+    <line x1="0" y1="800" x2="1200" y2="800" stroke="#fff"/>
+    <line x1="0" y1="1000" x2="1200" y2="1000" stroke="#fff"/>
+    <line x1="0" y1="1200" x2="1200" y2="1200" stroke="#fff"/>
+    <line x1="0" y1="1400" x2="1200" y2="1400" stroke="#fff"/>
+  </g>
+
+  <!-- 8-part structure icons (small tech icons around the envelope) -->
+  <!-- Part 1: Protocol (network node) -->
+  <circle cx="250" cy="300" r="30" fill="none" stroke="#4a9eff" stroke-width="2" opacity="0.6"/>
+  <text x="250" y="307" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#4a9eff" opacity="0.7">📡</text>
+  <text x="250" y="350" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4a9eff" opacity="0.5">协议</text>
+
+  <!-- Part 2: DLP (shield) -->
+  <circle cx="160" cy="440" r="30" fill="none" stroke="#00d4aa" stroke-width="2" opacity="0.6"/>
+  <text x="160" y="447" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#00d4aa" opacity="0.7">🛡️</text>
+  <text x="160" y="490" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#00d4aa" opacity="0.5">DLP</text>
+
+  <!-- Part 3: Storage (database) -->
+  <circle cx="160" cy="600" r="30" fill="none" stroke="#7eb8ff" stroke-width="2" opacity="0.6"/>
+  <text x="160" y="607" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#7eb8ff" opacity="0.7">🗄️</text>
+  <text x="160" y="650" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#7eb8ff" opacity="0.5">存储</text>
+
+  <!-- Part 4: Transport (arrows) -->
+  <circle cx="160" cy="760" r="30" fill="none" stroke="#f39c12" stroke-width="2" opacity="0.6"/>
+  <text x="160" y="767" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#f39c12" opacity="0.7">↔️</text>
+  <text x="160" y="810" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#f39c12" opacity="0.5">传输</text>
+
+  <!-- Part 5: SEG (firewall) -->
+  <circle cx="250" cy="880" r="30" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.6"/>
+  <text x="250" y="887" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#e74c3c" opacity="0.7">🔥</text>
+  <text x="250" y="930" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e74c3c" opacity="0.5">网关</text>
+
+  <!-- Part 6: Cloud/PaaS -->
+  <circle cx="1040" cy="300" r="30" fill="none" stroke="#3498db" stroke-width="2" opacity="0.6"/>
+  <text x="1040" y="307" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#3498db" opacity="0.7">☁️</text>
+  <text x="1040" y="350" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#3498db" opacity="0.5">云端</text>
+
+  <!-- Part 7: JMAP/信创 (chip) -->
+  <circle cx="1040" cy="500" r="30" fill="none" stroke="#9b59b6" stroke-width="2" opacity="0.6"/>
+  <text x="1040" y="507" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#9b59b6" opacity="0.7">🔐</text>
+  <text x="1040" y="550" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#9b59b6" opacity="0.5">国密</text>
+
+  <!-- Part 8: Red/Blue (crosshair) -->
+  <circle cx="1040" cy="700" r="30" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.6"/>
+  <text x="1040" y="707" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#ff6b6b" opacity="0.7">🎯</text>
+  <text x="1040" y="750" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ff6b6b" opacity="0.5">红蓝</text>
+
+  <!-- Central: Email envelope (larger) -->
+  <rect x="380" y="380" width="440" height="310" rx="24" ry="24" fill="none" stroke="url(#accent)" stroke-width="5"/>
+  <polyline points="380,420 600,560 820,420" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linejoin="round" opacity="0.9"/>
+
+  <!-- Inner shield -->
+  <path d="M600,480 L490,540 L490,670 Q490,780 600,830 Q710,780 710,670 L710,540 Z" fill="none" stroke="#00d4aa" stroke-width="4" opacity="0.5"/>
+  <text x="600" y="700" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#00d4aa" opacity="0.6">🔒</text>
+
+  <!-- JMAP badge -->
+  <rect x="550" y="640" width="100" height="22" rx="11" fill="#9b59b6" opacity="0.7"/>
+  <text x="600" y="656" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#fff">JMAP</text>
+
+  <!-- ISO 27001 badge -->
+  <rect x="490" y="745" width="100" height="22" rx="11" fill="#f39c12" opacity="0.5"/>
+  <text x="540" y="761" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#fff">ISO 27001</text>
+
+  <!-- GoPhish + Evilginx2 badge -->
+  <rect x="610" y="745" width="110" height="22" rx="11" fill="#e74c3c" opacity="0.5"/>
+  <text x="665" y="761" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#fff">红蓝对抗</text>
+
+  <!-- Main Title -->
+  <text x="600" y="970" text-anchor="middle" font-family="Noto Serif CJK SC, serif" font-size="44" font-weight="bold" fill="#ffffff">邮件系统安全加固</text>
+
+  <!-- Subtitle line 1 -->
+  <text x="600" y="1035" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#7eb8ff">从 SMTP 协议到国密、JMAP 与红蓝对抗</text>
+
+  <!-- Divider -->
+  <line x1="320" y1="1070" x2="880" y2="1070" stroke="url(#accent)" stroke-width="2" opacity="0.5"/>
+
+  <!-- Subtitle line 2 (English) -->
+  <text x="600" y="1120" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#8892b0">Modern Enterprise Email &amp; Collaboration</text>
+  <text x="600" y="1150" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#8892b0">Infrastructure Hardening</text>
+
+  <!-- Chapter count -->
+  <text x="600" y="1200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5a6a8a">8 部分 · 27 章 · 3 附录 · 涵盖 SMTP / JMAP / DLP / 国密 / HA / 红蓝对抗 / ISO&nbsp;27001</text>
+
   <!-- Author -->
-  <text x="600" y="1300" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#cccccc">LeisureLinux</text>
-  <!-- Bottom line -->
-  <text x="600" y="1450" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#888888">2026 · MIT License</text>
+  <text x="600" y="1320" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#8892b0">LeisureLinux 著</text>
+
+  <!-- Bottom badges -->
+  <g transform="translate(370,1370)">
+    <rect x="0" y="0" width="140" height="26" rx="8" fill="none" stroke="#4a9eff" stroke-width="1.5" opacity="0.5"/>
+    <text x="70" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4a9eff">🐧 信创适配</text>
+  </g>
+  <g transform="translate(530,1370)">
+    <rect x="0" y="0" width="140" height="26" rx="8" fill="none" stroke="#00d4aa" stroke-width="1.5" opacity="0.5"/>
+    <text x="70" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#00d4aa">🦞 JMAP 演进</text>
+  </g>
+  <g transform="translate(690,1370)">
+    <rect x="0" y="0" width="140" height="26" rx="8" fill="none" stroke="#e74c3c" stroke-width="1.5" opacity="0.5"/>
+    <text x="70" y="18" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#e74c3c">🎯 红蓝对抗</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="1596" width="1200" height="4" fill="url(#accent)"/>
+  <text x="600" y="1480" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#3a4a6a">2026 · MIT License · GitHub: LeisureLinux/ebook-email-hardening</text>
 </svg>

@@ -1,10 +1,26 @@
-# 邮件系统安全加固：从 SMTP 协议到国密与高可用架构
+# 邮件系统安全加固：从 SMTP 协议到国密、JMAP 与红蓝对抗
 
-> 现代企业邮件与协同基础设施安全加固 —— 从 SMTP 协议到国密、云端 PaaS 与高可用架构。
-> 作者：**LeisureLinux** (郭靖大侠)
+> 现代企业邮件与协同基础设施安全加固 —— 从协议层到应用层、从防御到对抗、从落地到合规。
+> 作者：**LeisureLinux** (郭靖大侠) · **8 部分 · 27 章 · 3 附录**
 
 [![build](https://github.com/LeisureLinux/ebook-email-hardening/actions/workflows/build.yml/badge.svg)](https://github.com/LeisureLinux/ebook-email-hardening/actions/workflows/build.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![pages](https://img.shields.io/badge/📖-在线阅读-brightgreen)](https://leisurelinux.github.io/ebook-email-hardening/)
+
+## 📖 关于本书
+
+本书是国内少有的**从系统架构师、安全分析师与红蓝对抗实战视角**全面解构现代企业邮件系统的技术专著。全书 **8 个部分、27 章、3 个附录**，覆盖从 RFC 协议规范到生产环境部署的完整知识体系：
+
+| 部分 | 主题 | 章数 | 核心亮点 |
+|------|------|:---:|---------|
+| 一 | 邮件系统体系架构与安全术语图谱 | 2 | SMTP/POP3/IMAP 协议栈全景 + 50+ 术语速查 |
+| 二 | 终端接入、协同服务与 DLP 加固 | 4 | MUA 硬化 · Webmail 动态水印 · 日历钓鱼防御 · E2EE |
+| 三 | 收件、过滤与存储层加固 | 5 | Dovecot · Sieve · LDAP · Domino 遗留系统 · WORM 归档 |
+| 四 | 传输层 (MTA)、邮件列表与反病毒网关 | 5 | Postfix · Postscreen · SPF/DKIM/DMARC · ARC · ClamAV Milter |
+| 五 | 邮件安全网关 (SEG) 与高级威胁 | 3 | Rspamd · PMG · Cisco IronPort · Proofpoint · SIEM/SOAR |
+| 六 | 云端 PaaS 与 EDM 营销自动化 | 1 | AWS SES · 阿里云 DirectMail · Mailchimp · IP Warming |
+| 七 | 信创生态·高可用·协议演进 | 5 | 信创适配 · 国密 SM2/SM3/SM4 · HA/DR · 🆕 **JMAP 协议演进** |
+| 八 | 🆕 **攻防对抗·纵深防御·合规落地** | 2 | STRIDE 威胁建模 · GoPhish · Evilginx2 · ISO 27001:2022 · CMM |
 
 ---
 
