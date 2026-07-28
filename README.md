@@ -17,7 +17,7 @@
 | 二 | 终端接入、协同服务与 DLP 加固 | 4 | MUA 硬化 · Webmail 动态水印 · 日历钓鱼防御 · E2EE |
 | 三 | 收件、过滤与存储层加固 | 5 | Dovecot · Sieve · LDAP · Domino 遗留系统 · WORM 归档 |
 | 四 | 传输层 (MTA)、邮件列表与反病毒网关 | 5 | Postfix · Postscreen · SPF/DKIM/DMARC · ARC · ClamAV Milter |
-| 五 | 邮件安全网关 (SEG) 与高级威胁 | 3 | Rspamd · PMG · Cisco IronPort · Proofpoint · SIEM/SOAR |
+| 五 | 邮件安全网关 (SEG) 与高级威胁 | 3 | Rspamd · PMG · Symantec SMG · Cisco IronPort · Proofpoint · SIEM/SOAR |
 | 六 | 云端 PaaS 与 EDM 营销自动化 | 1 | AWS SES · 阿里云 DirectMail · Mailchimp · IP Warming |
 | 七 | 信创生态·高可用·协议演进 | 5 | 信创适配 · 国密 SM2/SM3/SM4 · HA/DR · 🆕 **JMAP 协议演进** |
 | 八 | 🆕 **攻防对抗·纵深防御·合规落地** | 2 | STRIDE 威胁建模 · GoPhish · Evilginx2 · ISO 27001:2022 · CMM |
@@ -256,12 +256,14 @@
 #### 第十八章 商业邮件安全网关（SEG）能力拆解与高级威胁防护
 
 - **18.1** 商业 SEG 体系架构分析
-  - 18.1.1 Cisco IronPort (AsyncOS)：SenderBase 评估与 CBR Engine
-  - 18.1.2 Proofpoint：TAP 威胁保护、URL 重写 (URL Defense) 与 DLP 联动
-  - 18.1.3 Fortinet FortiMail / Barracuda 策略映射
+  - 18.1.1 🆕 Symantec Messaging Gateway / Brightmail 引擎演进（2004→2024 三次品牌变更）
+  - 18.1.2 Cisco IronPort (AsyncOS)：SenderBase 评估与 CBR Engine
+  - 18.1.3 Proofpoint：TAP 威胁保护、URL 重写 (URL Defense) 与 DLP 联动
+  - 18.1.4 Fortinet FortiMail / Barracuda 策略映射
 - **18.2** 高级威胁防护 (ATP) 机制
   - 18.2.1 商业邮件诈骗（BEC）与相似域名（Lookalike Domain）算法识别
   - 18.2.2 动态沙箱投递与附件行为分析（Detonation Chamber）
+- **18.3** 商业 SEG 选型决策矩阵
 
 #### 第十九章 日志分析、动态防护与 SIEM/SOAR 联动
 
@@ -419,7 +421,7 @@
 
 ### 附录 B：企业级邮件与安全产品矩阵（Product Matrix）
 
-涵盖 Postfix、Dovecot (Pigeonhole)、Proxmox Mail Gateway、Rspamd、GNU Mailman 3/Sympa、SabreDAV/Baïkal、Mailpiler、Roundcube/SnappyMail、GnuPG、HCL Domino、Zimbra Collaboration、Cisco IronPort、Proofpoint、AWS SES、阿里云 DirectMail、Mailchimp、Mautic、Listmonk、Coremail/RichMail、Microsoft Exchange Server 等 20+ 产品的架构定位、协议栈与核心安全能力。
+涵盖 Postfix、Dovecot (Pigeonhole)、Proxmox Mail Gateway、Rspamd、GNU Mailman 3/Sympa、SabreDAV/Baïkal、Mailpiler、Roundcube/SnappyMail、GnuPG、HCL Domino、Zimbra Collaboration、Symantec Messaging Gateway (Brightmail)、Cisco IronPort、Proofpoint、AWS SES、阿里云 DirectMail、Mailchimp、Mautic、Listmonk、Coremail/RichMail、Microsoft Exchange Server 等 20+ 产品的架构定位、协议栈与核心安全能力。
 
 ### 附录 C：参考文献与标准规范（References & RFCs）
 
