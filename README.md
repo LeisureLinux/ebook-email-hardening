@@ -1,6 +1,6 @@
-# 邮件系统安全加固：从 SMTP 协议到国密、JMAP 与红蓝对抗
+# 邮件系统纵深加固：从协议栈到红蓝对抗与 ISO 27001 落地
 
-> 现代企业邮件与协同基础设施安全加固 —— 从协议层到应用层、从防御到对抗、从落地到合规。
+> 🛡️ 邮件安全架构师的完整作战地图：底层 RFC 协议族（SMTP/IMAP/JMAP/DKIM/DMARC）→ 中游 SEG/Rspamd/DLP 纵深防御 → 顶层红蓝对抗（GoPhish/Evilginx2）与 ISO 27001:2022 合规收束。
 > 作者：**LeisureLinux** (郭靖大侠) · **8 部分 · 27 章 · 3 附录**
 
 [![build](https://github.com/LeisureLinux/ebook-email-hardening/actions/workflows/build.yml/badge.svg)](https://github.com/LeisureLinux/ebook-email-hardening/actions/workflows/build.yml)
